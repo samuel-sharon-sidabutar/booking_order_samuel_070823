@@ -14,7 +14,7 @@
                 <field name="team"/>
                 <field name="leader"/>
                 <field name="members" widget="many2many_tags"/>
-                <field name="is_booking_order" filter_domain="[('is_booking_order','=',True)]"/>
+                <!-- <field name="is_booking_order" filter_domain="[('is_booking_order','=',True)]"/> -->
                 <!-- <field name="partner_id" filter_domain="[('partner_id','child_of',self)]"/> -->
             </field>
             

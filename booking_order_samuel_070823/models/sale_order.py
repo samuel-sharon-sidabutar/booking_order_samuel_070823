@@ -17,3 +17,9 @@ class SaleOrder(models.Model):
         obj = super(SaleOrder, self).create(vals)
         obj.write({'is_booking_order': True})
         return obj
+
+    @api.onchange('team')
+    def set_team_data(self):
+        team = self.env['booking_order_samuel_070823.service_team'].search([('id','=',self.team.id)])
+        self.leader = team.leader
+        self.members = team.members
