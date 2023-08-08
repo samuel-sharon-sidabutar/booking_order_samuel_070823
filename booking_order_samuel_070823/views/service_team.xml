@@ -25,6 +25,9 @@
                 <sheet>
                     <group>
                         <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="leader"/>
+                        <field name="members"/>
                         
                     </group>
                 </sheet>
@@ -32,10 +35,18 @@
         </field>
     </record>
 
+    <!-- booking_order_samuel_070823.service_team action window -->
+    <record id="booking_order_samuel_070823.service_team_action" model="ir.actions.act_window">
+        <field name="name">booking_order_samuel_070823.service_team.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">booking_order_samuel_070823.service_team</field>
+        <field name="view_mode">tree,form</field>
+    </record>s
+
     <menuitem
         id="service_team_menu"
         name="Service Team"
-        action=""
+        action="booking_order_samuel_070823.service_team_action"
         parent="sales_menu_root"
         sequence="30"/>
 </odoo>
