@@ -17,3 +17,19 @@ class WorkOrder(models.Model):
     date_end = fields.Datetime(string='Date End', readonly=True)
     state = fields.Selection([('pending', 'Pending'), ('in_progress', 'In Progress'), ('done', 'Done'), ('cancelled', 'Cancelled')], string='Status', default='pending')
     notes = fields.Text(string='Notes')
+
+    @api.multi
+    def action_start_work(self):
+        self.state = 'in_progress'
+    
+    @api.multi
+    def action_end_work(self):
+        self.state ='done'
+
+    @api.multi
+    def action_reset(self):
+        self.state ='pending'
+    
+    @api.multi
+    def action_cancel(self):
+        self.state ='cancelled'
