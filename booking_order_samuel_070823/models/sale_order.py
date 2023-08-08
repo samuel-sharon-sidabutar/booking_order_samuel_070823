@@ -11,3 +11,9 @@ class SaleOrder(models.Model):
     members = fields.Many2many('res.users', string='Team Members')
     booking_start = fields.Datetime(string='Booking Start')
     booking_end = fields.Datetime(string='Booking End')
+
+    @api.model
+    def create(self, vals):
+        obj = super(SaleOrder, self).create(vals)
+        obj.write({'is_booking_order': True})
+        return obj
