@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- booking_order_samuel_070823.service_team tree view -->
+    <record id="booking_order_samuel_070823.service_team_view_tree" model="ir.ui.view">
+        <field name="name">booking_order_samuel_070823.service_team.view.tree</field>
+        <field name="model">booking_order_samuel_070823.service_team</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="leader"/>
+                <field name="members"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <!-- booking_order_samuel_070823.service_team form view -->
+    <record id="booking_order_samuel_070823.service_team_view_form" model="ir.ui.view">
+        <field name="name">booking_order_samuel_070823.service_team.view.form</field>
+        <field name="model">booking_order_samuel_070823.service_team</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem
+        id="service_team_menu"
+        name="Service Team"
+        action=""
+        parent="sales_menu_root"
+        sequence="30"/>
+</odoo>

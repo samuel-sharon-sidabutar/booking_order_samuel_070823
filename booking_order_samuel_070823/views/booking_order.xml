@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <menuitem
+        id="booking_order_menu"
+        name="Booking Order"
+        action=""
+        parent="sales_menu_root"
+        sequence="10"/>
+</odoo>
