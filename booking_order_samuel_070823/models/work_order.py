@@ -1,5 +1,6 @@
 from odoo import _, api, fields, models
 from odoo.osv import osv
+from datetime import datetime
 
 
 class WorkOrder(models.Model):
@@ -21,10 +22,12 @@ class WorkOrder(models.Model):
     @api.multi
     def action_start_work(self):
         self.state = 'in_progress'
+        self.date_start = datetime.now()
     
     @api.multi
     def action_end_work(self):
         self.state ='done'
+        self.date_end = datetime.now()
 
     @api.multi
     def action_reset(self):

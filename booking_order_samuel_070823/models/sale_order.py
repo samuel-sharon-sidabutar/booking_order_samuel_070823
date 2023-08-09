@@ -49,8 +49,9 @@ class SaleOrder(models.Model):
             'team': self.team.id,
             'leader': self.leader.id,
             'members': [(6,0,self.get_member_ids())],
-            'date_start': self.booking_start,
-            'date_end': self.booking_end,
+            # SET IN START AND END ACTIONS
+            # 'date_start': self.booking_start,
+            # 'date_end': self.booking_end,
             'planned_start': self.booking_start,
             'planned_end': self.booking_end,
             'booking_order_reference': self.id,
