@@ -51,9 +51,9 @@
                         <field name="notes"/> 
                     </group>
                 </sheet>
-                <footer>
+                <!-- <footer>
                     <button string="Print" name="action_report_print" type="object" class="oe_highlight"/>
-                </footer>
+                </footer> -->
             </form>
         </field>
     </record>

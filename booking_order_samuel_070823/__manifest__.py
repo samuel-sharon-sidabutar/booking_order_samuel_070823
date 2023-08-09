@@ -20,11 +20,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale'],
+    'depends': ['base', 'sale', 'report'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'report/report.xml',
+        'report/report_work_order.xml',
         'wizards/cancel_reason.xml',
         'views/views.xml',
         'views/templates.xml',

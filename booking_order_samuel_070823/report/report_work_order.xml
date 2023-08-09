@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <template id="booking_order_samuel_070823.report_work_order_document">
+        <t t-call="report.external_layout">
+        <!-- <t t-call="web.basic_layout"> -->
+            <div class="page">
+            <style>
+                table, th, td {
+                    border:1px solid black;
+                }
+                td {
+                    height: 35px;
+                    padding: 8px;
+                }
+                table {
+                    width: 100%;
+                }
+                <!-- span {
+                    margin: 50px;
+                } -->
+            </style>
+
+            <table>
+                <tr>
+                    <td colspan="4">
+                        <span t-field="wo.wo_number"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Team Name
+                    </td>
+                    <td>
+                        <span t-field="wo.team"/>
+                    </td>
+                    <td>
+                        Customer
+                    </td>
+                    <td>
+                        <span t-field="wo.booking_order_reference.partner_id.name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Booking Order Ref
+                    </td>
+                    <td>
+                        <span t-field="wo.booking_order_reference.name"/>
+                    </td>
+                    <td>
+                        Date
+                    </td>
+                    <td>
+                        <p><span t-field="wo.date_start"/> - <span t-field="wo.date_end"/></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="height:90px;">
+                        NOTES:<br/>
+                        <span t-field="wo.notes"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="height:65px;">
+                        Signature
+                    </td>
+                </tr>
+            </table>
+            </div>
+       </t>
+    </template>
+
+    <template id="report_work_order">
+        <t t-call="report.html_container">
+            <t t-call="booking_order_samuel_070823.report_work_order_document"/>
+        </t>
+    </template>
+
+</odoo>
