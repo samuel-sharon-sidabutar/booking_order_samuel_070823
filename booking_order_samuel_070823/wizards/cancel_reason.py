@@ -14,7 +14,10 @@ class CancelReason(models.TransientModel):
         for rec in wo_ids:
             wo_id = self.env['booking_order_samuel_070823.work_order'].search([('id', '=', rec)])
 
-        wo_id.notes = self.reason
+        old_notes = ""
+        if wo_id.notes:
+            old_notes = wo_id.notes
+        wo_id.notes = old_notes + self.reason
         wo_id.state ='cancelled'
 
     
