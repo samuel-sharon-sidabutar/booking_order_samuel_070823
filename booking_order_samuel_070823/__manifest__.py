@@ -25,6 +25,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'wizards/cancel_reason.xml',
         'views/views.xml',
         'views/templates.xml',
         'views/menu.xml',

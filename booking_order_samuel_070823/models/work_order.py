@@ -33,3 +33,4 @@ class WorkOrder(models.Model):
     @api.multi
     def action_cancel(self):
         self.state ='cancelled'
+        # CREATE WIZZARD ASKING FOR CANCELLATION NOTE

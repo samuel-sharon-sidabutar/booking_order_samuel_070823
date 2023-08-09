@@ -33,7 +33,7 @@
                     <button name="action_start_work" string="Start Work" states="pending" type="object"/>
                     <button name="action_end_work" string="End Work" states="in_progress" type="object"/>
                     <button name="action_reset" string="Reset" states="in_progress" type="object"/>
-                    <button name="action_cancel" string="Cancel" type="object"/>
+                    <button name="%(booking_order_samuel_070823.booking_order_samuel_070823_cancel_reason_action)d" string="Cancel" type="action"/>
                     <field name="state" widget="statusbar" statusbar_visible="pending,in_progress,done,cancelled"/>
                 </header>
                 <sheet>
