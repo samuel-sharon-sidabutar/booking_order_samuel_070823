@@ -41,19 +41,31 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
-            <!-- Add your xpath here -->
             <xpath expr="//button[@name='action_confirm']" position="before">
                 <button name="action_check" string="Check" type="object" icon="fa-refresh"/>
             </xpath>
+            <div name="button_box" position="inside">
+                <button name="open_work_order_form"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-list-alt"
+                    >
+                    <field name="work_order_count" widget="statinfo" string="Work Order"/>
+                </button>
+            </div>
             <xpath expr="//group/group/field[@name='payment_term_id']" position="after">
-                <!-- tambahin button buat ke work_ordernya -->
                 <field name="booking_start" required="1"/>
                 <field name="booking_end" required="1"/>
                 <field name="team" required="1"/>
                 <field name="leader" required="1"/>
                 <field name="members" widget="many2many_tags" required="1"/>
             </xpath>
-            
+
+            <!-- UNCOMMENT FOR HEADER BUTTON -->
+            <!-- <xpath expr="//header" position="inside">
+                <button name="open_work_order_form" type="object" string="Work Order" class="oe_highlight"/>
+            </xpath> -->  
+                      
         </field>
     </record>
 

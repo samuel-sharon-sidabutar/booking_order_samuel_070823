@@ -11,6 +11,7 @@ class SaleOrder(models.Model):
     members = fields.Many2many('res.users', string='Team Members')
     booking_start = fields.Datetime(string='Booking Start')
     booking_end = fields.Datetime(string='Booking End')
+    work_order_count = fields.Integer(compute='compute_count')
 
     @api.model
     def create(self, vals):
@@ -47,7 +48,7 @@ class SaleOrder(models.Model):
             'state': 'pending',
             'team': self.team.id,
             'leader': self.leader.id,
-            'members': self.get_member_ids(),
+            'members': [(6,0,self.get_member_ids())],
             'date_start': self.booking_start,
             'date_end': self.booking_end,
             'planned_start': self.booking_start,
@@ -60,6 +61,7 @@ class SaleOrder(models.Model):
         member_ids = []
         for rec in self.members:
             member_ids.append(rec.id)
+        print(member_ids)
         return member_ids
     
     def check_for_datetime_overlap(self):
@@ -75,3 +77,24 @@ class SaleOrder(models.Model):
                 overlapping_with = work_order.booking_order_reference.name
                 continue
         return overlap, overlapping_with
+    
+    def open_work_order_form(self):
+        search_output = self.env['booking_order_samuel_070823.work_order'].search([('booking_order_reference', '=', self.id)])
+        print(search_output)
+        print(len(search_output))
+        if len(search_output) == 0:
+            raise osv.except_osv("A work order has not been created for this booking order.")
+        return{
+            'res_model': 'booking_order_samuel_070823.work_order',
+            'res_id': search_output.id,
+            'type': 'ir.actions.act_window',
+            # 'view_type': 'form', 
+            'view_mode': 'form', 
+            'view_id': self.env.ref('booking_order_samuel_070823.booking_order_samuel_070823_work_order_view_form').id
+        }
+
+    def compute_count(self):
+        print(self)
+        for rec in self:
+            print(rec)
+            rec.work_order_count = self.env['booking_order_samuel_070823.work_order'].search_count([('booking_order_reference', '=', self.id)])
